@@ -1,0 +1,142 @@
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: #9b1c1c;
+  color: white;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #AF1B3F;
+}
+
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+    .topnav a:hover {
+      background-color: #CCB69B;
+      color: #6B0F2A;
+    }
+
+    .topnav a.active {
+      background-color: #AF1B3F;
+      color: white;
+    }
+
+.topnav-right {
+  float: right;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+}
+
+.brand {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.navbar-right {
+  display: flex;
+  gap: 16px;
+}
+
+.logout-link {
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+}
+
+  .logout-link:hover {
+    text-decoration: underline;
+  }
+
+
+.articles-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+  .articles-table th,
+  .articles-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+  }
+
+
+.page-container {
+  padding: 24px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.page-title {
+  margin-bottom: 16px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+  .styled-table thead {
+    background-color: #f4f6f8;
+  }
+
+  .styled-table th,
+  .styled-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .styled-table th {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+  }
+
+  .styled-table td {
+    font-size: 14px;
+    color: #333;
+  }
+
+  .styled-table tbody tr:hover {
+    background-color: #f9fafb;
+  }
+
+.status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+  .status.published {
+    font-weight: 600;
+    background-color: #e6f4ea;
+    color: #1e7e34;
+  }
+

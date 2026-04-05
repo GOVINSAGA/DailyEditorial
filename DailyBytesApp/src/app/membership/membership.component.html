@@ -1,0 +1,64 @@
+<div class="topnav ">
+  <a class="navbar-brand" routerLink="/landing">DailyBytes</a>
+  <a class="navbar-brand active" routerLink="/membership">Membership</a>
+  <a class="navbar-brand" *ngIf="isPremiumUser" routerLink="/premium-access">Premium Access ⭐</a>
+  <div *ngIf="!isLoggedIn" class="topnav-right">
+    <a routerLink="/signup">Sign Up</a>
+    <a class="active" routerLink="/login">Login</a>
+  </div>
+  <div *ngIf="isLoggedIn" class="topnav-right">
+    <a routerLink="/search-article">Search</a>
+    <a href="#">{{userName}}</a>
+    <a routerLink="/view-profile">Profile</a>
+    <a href="#" (click)="logout()">Logout</a>
+  </div>
+</div>
+
+<div class="membership-container">
+  <h2>Select Your Membership Plan</h2>
+  
+  <!-- Show current membership if user already has one -->
+  <div *ngIf="hasMembership" class="current-membership">
+    <h3>✓ Your Current Membership: {{currentMembership}}</h3>
+    <p>Your membership is valid for 1 month.</p>
+    <p class="validity-note">Enjoy exclusive benefits and content!</p>
+  </div>
+
+  <!-- Only show selection if user doesn't have membership -->
+  <div *ngIf="!hasMembership">
+    <div class="membership-dropdown">
+      <label for="membershipSelect">Membership Type:</label>
+      <select id="membershipSelect" [(ngModel)]="selectedPlan" [disabled]="!isLoggedIn">
+        <option value="" disabled selected>Select a plan</option>
+        <option value="Primary">Primary - ₹100</option>
+        <option value="Premium">Premium - ₹500</option>
+      </select>
+    </div>
+    <div class="membership-action">
+      <button class="submit-btn" [disabled]="!selectedPlan || !isLoggedIn" (click)="proceedToPay()">Proceed to Pay</button>
+      <div *ngIf="message && !hasMembership" class="membership-message">{{ message }}</div>
+    </div>
+
+    <!-- Payment Section -->
+    <div *ngIf="showPaymentSection" class="payment-section">
+      <div class="payment-row">
+        <label>Amount to Pay:</label>
+        <span class="amount">₹{{ selectedPlan === 'Premium' ? 500 : 100 }}</span>
+      </div>
+      <div class="payment-row">
+        <label for="cardNumber">Card Number:</label>
+        <input id="cardNumber" type="text" maxlength="16" [(ngModel)]="cardNumber" placeholder="Enter 16-digit card number" />
+      </div>
+      <div class="payment-row">
+        <label for="cvv">CVV:</label>
+        <input id="cvv" type="password" maxlength="3" [(ngModel)]="cvv" placeholder="CVV" />
+      </div>
+      <div class="payment-row">
+        <label for="expiry">Expiry Date:</label>
+        <input id="expiry" type="month" [(ngModel)]="expiry" [min]="minExpiry" />
+      </div>
+      <button class="submit-btn" (click)="pay()" [disabled]="!canPay()">Pay Now</button>
+      <div *ngIf="paymentMessage" class="membership-message">{{ paymentMessage }}</div>
+    </div>
+  </div>
+</div>

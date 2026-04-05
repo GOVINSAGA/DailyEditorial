@@ -1,0 +1,53 @@
+<app-common-layout></app-common-layout>
+
+<br /><br /><br /><br />
+<div class="login-container">
+  <h2 class="login-title">
+    Login
+  </h2>
+  <br /><br />
+
+        <form #loginForm="ngForm" (ngSubmit)="submitLoginForm(loginForm)" class="login-form">
+            <input type="email" name="email" class="qkinput" placeholder="Email ID / Username" ngModel required #email="ngModel" />
+            <div class="error" *ngIf="email.invalid && (email.touched || email.dirty)">
+              <div *ngIf="email.errors?.['required']">
+                Email is required
+              </div>
+              <div *ngIf="email.errors?.['email']">
+                Email should follow a valid format
+              </div>
+            </div>
+            <input type="password" name="password" class="qkinput"
+                   placeholder="Password" ngModel required minlength="7" maxlength="16" pattern="^[a-zA-Z0-9#@$]+$" #password="ngModel" />
+            <div class="error" *ngIf="password.invalid && (password.touched || password.dirty)">
+              <div *ngIf="password.errors?.['required']">
+                Password is required
+              </div>
+              <div *ngIf="password.errors?.['minlength']">
+                Password must be atleast 8 characters
+              </div>
+              <div *ngIf="password.errors?.['maxlength']">
+                Password cannot exceed 16 characters
+              </div>
+              <div *ngIf="password.errors?.['pattern']">
+                Password must be alphanumeric
+              </div>
+            </div>
+
+          <div>
+            <button type="submit" class="submit-btn" [disabled]="!loginForm['form'].valid">Login</button>
+            &nbsp;&nbsp;
+            <br /><br /><br />
+            <a href="/" class="home-link">
+              Back to Home
+            </a>
+          </div>
+          <div *ngIf="showDiv" style="color:red">
+            {{msg}}
+          </div>
+        </form>
+
+  <div style="text-align:center; margin-top:20px;">
+    DailyBytes Media House - Your daily dose of information © 2026
+  </div>
+</div>

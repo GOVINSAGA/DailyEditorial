@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36908.2
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DailyBytesServices", "DailyBytesServices\DailyBytesServices.csproj", "{37D85C88-8F86-4A25-9307-677E963E4735}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DailyBytesDataAccessLayer", "DailyBytesDataAccessLayer\DailyBytesDataAccessLayer.csproj", "{D86B64F3-4FBA-4649-9818-4C7C9E200301}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "DailyBytesApp", "DailyBytesApp\", "{0702053C-85E3-FB64-853D-39C8DBF45788}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_49350"
+		Debug.AspNetCompiler.PhysicalPath = "DailyBytesApp\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_49350\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_49350"
+		Release.AspNetCompiler.PhysicalPath = "DailyBytesApp\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_49350\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "49350"
+		SlnRelativePath = "DailyBytesApp\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37D85C88-8F86-4A25-9307-677E963E4735}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37D85C88-8F86-4A25-9307-677E963E4735}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37D85C88-8F86-4A25-9307-677E963E4735}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37D85C88-8F86-4A25-9307-677E963E4735}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D86B64F3-4FBA-4649-9818-4C7C9E200301}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D86B64F3-4FBA-4649-9818-4C7C9E200301}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D86B64F3-4FBA-4649-9818-4C7C9E200301}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D86B64F3-4FBA-4649-9818-4C7C9E200301}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0702053C-85E3-FB64-853D-39C8DBF45788}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0702053C-85E3-FB64-853D-39C8DBF45788}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0702053C-85E3-FB64-853D-39C8DBF45788}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{0702053C-85E3-FB64-853D-39C8DBF45788}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E67E9613-77B1-4BFE-9A65-9929B94BCB3C}
+	EndGlobalSection
+EndGlobal

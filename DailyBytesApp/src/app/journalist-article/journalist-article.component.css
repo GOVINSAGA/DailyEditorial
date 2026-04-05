@@ -1,0 +1,231 @@
+body {
+  background: #faf3eb;
+  padding: 0px;
+  margin: 0px;
+}
+
+.myContent {
+  padding-top: 10px;
+  padding-left: 70px;
+  padding-right: 70px;
+}
+
+h1, h2, h3, h4, h5, h6, a, p {
+  color: #473144;
+}
+
+.btn {
+  background-color: #DF9B6D;
+  border: 0.5px solid #AF1B3F;
+  color: black;
+  padding: 8px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.btn:hover {
+  background-color: #AF1B3F;
+  color: white;
+}
+
+.btn:disabled {
+  background-color: #DF9B6D;
+  border: 0.5px solid #AF1B3F;
+  color: black;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-edit {
+  min-width: 80px;
+}
+
+.title {
+  margin: 50px 0px 30px 0px;
+  padding: 10px;
+  background-color: #DF9B6D;
+  border-radius: 10px 10px 10px 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.title h2 {
+  margin: 0;
+  color: #473144;
+}
+
+.text-danger-validation {
+  color: red;
+  text-align: center;
+  padding: 20px;
+  font-size: 16px;
+}
+
+.loading-container {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  color: #473144;
+}
+
+.no-articles {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  color: #473144;
+}
+
+.articles-container {
+  margin-top: 30px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  text-align: center;
+  table-layout: fixed;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+table thead {
+  background-color: #AF1B3F;
+}
+
+table thead tr th {
+  color: white;
+  padding: 15px;
+  font-weight: bold;
+  border-bottom: 2px solid #6B0F2A;
+}
+
+table tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+
+table tbody tr:hover {
+  background-color: #faf3eb;
+}
+
+table tbody tr td {
+  padding: 15px;
+  color: #473144;
+  vertical-align: middle;
+}
+
+.thArticle {
+  width: 30%;
+}
+
+.thArticle-status {
+  width: 15%;
+}
+
+.thArticle-action {
+  width: 15%;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.status-draft {
+  background-color: #ffc107;
+  color: #473144;
+}
+
+.status-submitted {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.status-published {
+  background-color: #28a745;
+  color: white;
+}
+
+.status-rejected {
+  background-color: #dc3545;
+  color: white;
+}
+
+.status-default {
+  background-color: #6c757d;
+  color: white;
+}
+
+@media screen and (max-width:992px) {
+  .myContent {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .title {
+    width: 100%;
+    margin: 30px 0px 20px 0px;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  table thead tr th,
+  table tbody tr td {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width:600px) {
+  .title {
+    width: 100%;
+    margin: 20px 0px 15px 0px;
+    font-size: 18px;
+  }
+
+  .title h2 {
+    font-size: 20px;
+  }
+
+  .articles-container {
+    margin-top: 20px;
+  }
+
+  table {
+    font-size: 12px;
+  }
+
+  table thead tr th,
+  table tbody tr td {
+    padding: 8px 4px;
+  }
+
+  .btn-edit {
+    min-width: 60px;
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  .status-badge {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
+  .thArticle {
+    width: 28%;
+  }
+
+  .thArticle-status {
+    width: 20%;
+  }
+
+  .thArticle-action {
+    width: 20%;
+  }
+}

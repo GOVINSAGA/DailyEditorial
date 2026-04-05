@@ -1,0 +1,17 @@
+<app-editor-layout></app-editor-layout>
+<br />
+<br />
+<div  class="review-container">
+  <h3>{{message}}</h3>
+  <div *ngIf="articlesList"  class="article-box">
+
+    <div *ngFor="let article of articlesList" class="row-item">
+      <div class="label">{{article.articleId}}</div>
+      <div class="value">{{ article.headline }}</div>
+      <div class="label" routerLink="/review/{{article.articleId}}">
+        <button class="btn approve-btn">Review</button>
+      </div>
+    </div>
+
+  </div>
+</div>

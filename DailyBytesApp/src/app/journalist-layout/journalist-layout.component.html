@@ -1,0 +1,14 @@
+<nav class="topnav my-header">
+  <a class="navbar-brand" routerLink="/journalist">DailyBytes</a>
+  <a routerLink="/author-article">Author</a>
+  <a routerLink="/my-articles">My Articles</a>
+  <a>Media Library</a>
+  <div class="topnav-right">
+    <span>{{userName}}</span>
+    <a routerLink="/view-profile">Profile</a>
+    <a href="#" (click)="logout()">Logout</a>
+  </div>
+</nav>
+<router-outlet></router-outlet>
+
+

@@ -1,0 +1,73 @@
+<app-editor-layout></app-editor-layout>
+<br />
+<br />
+<div *ngIf="currentArticle" class="review-container">
+
+  <div *ngIf="currentArticle" class="article-box">
+
+    <div class="row-item">
+      <div class="label">Article ID</div>
+      <div class="value">{{ currentArticle.articleId }}</div>
+    </div>
+
+    <div class="row-item">
+      <div class="label">Headline</div>
+      <div class="value">{{ currentArticle.headline }}</div>
+    </div>
+
+    <div class="row-item">
+      <div class="label">Sub Heading</div>
+      <div class="value">{{ currentArticle.subHeading }}</div>
+    </div>
+
+    <div class="row-item">
+      <div class="label">Category</div>
+      <div class="value">{{ currentArticle.categoryName }}</div>
+    </div>
+
+    <div class="row-item">
+      <div class="label">Editor</div>
+      <div class="value">{{ currentArticle.authorId }}</div>
+    </div>
+
+    <div class="row-item">
+      <div class="label">Media ID</div>
+      <div class="value">{{ currentArticle.mediaId }}</div>
+    </div>
+
+    <div class="row-item content-row">
+      <div class="label">Content</div>
+      <div class="value content-text">
+        {{ currentArticle.articleContent }}
+      </div>
+    </div>
+
+  </div>
+
+  <div class="review-section">
+    <div class="review-title">Review comments:</div>
+
+    <textarea class="review-textarea"
+              rows="5"
+              [(ngModel)]="reviewComments"
+              required
+              >
+   </textarea>
+  </div>
+
+  <div class="button-row">
+    <div>
+      <button class="btn approve-btn" (click)="approve()">Approve</button>
+      <button class="btn sendback-btn" [disabled]="!reviewComments.trim()" (click)="sendFeedback()">Send back to author</button>
+    </div>
+
+    <div>
+      <button class="btn cancel-btn" (click)="cancel()">Cancel</button>
+    </div>
+  </div>
+
+</div>
+
+<div *ngIf="!currentArticle" class="review-container">
+  Loading Article...
+</div>

@@ -1,0 +1,81 @@
+<div class="topnav ">
+  <a class="navbar-brand" href="#">DailyBytes</a>
+  <a class="navbar-brand" href="#">Membership</a>
+  <div class="topnav-right">
+    <a href="#" routerLink="/search-article">Search</a>
+    <a href="#">{{userName}}</a>
+    <a href="#" (click)="logout()">Logout</a>
+  </div>
+</div>
+
+<div class="search-wrapper">
+  <div class="container text-center mt-5">
+    <h2 class="mb-4">Search Articles</h2>
+
+    <form>
+      <input
+             type="text"
+             class="form-control search-input mx-auto"
+             name="keyword"
+             placeholder="Enter Search Keyword"
+             required
+             ngModel
+             #keyword="ngModel"
+             />
+      <div
+           class="text-danger mt-2"
+           *ngIf="keyword.invalid && keyword.touched">
+        keyword is reqquired
+      </div>
+
+      <button
+              type="submit"
+              class="btn btn-warning mt-3"
+              (click)="search(keyword.value)">
+        Search
+      </button>
+    </form>
+
+    </div>
+</div>
+
+<div class="results-wrapper" *ngIf="filteredArticles.length>0">
+
+  <table class="table table-bordered table-striped table-hover results-table">
+    <thead class="table-dark">
+      <tr>
+        <th>#</th>
+        <th>Headline</th>
+        <th>Sub Heading</th>
+        <th>Content</th>
+        <th>Category</th>
+        <th>Author</th>
+      </tr>
+    </thead>
+
+
+    <tbody>
+      <tr *ngFor="let article of filteredArticles; let i=index">
+        <td>{{i+1}}</td>
+        <td>{{article.headline}}</td>
+        <td>{{article.subHeading}}</td>
+        <td>{{article.articleContent}}</td>
+        <td>{{article.categoryName}}</td>
+        <td>{{article.authorFirstName}}{{article.authorLastName}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  
+  <div class="No_result"
+       *ngIf="filteredArticles.length ===0 && keyword.value">
+    <p class="text-danger"> No articles found</p>
+  </div>
+
+
+ <div class="footer-text">
+   
+     DailyBytes Media House - Your daily dose of information @ 2026
+  
+ </div>
+

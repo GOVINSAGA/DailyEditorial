@@ -1,0 +1,142 @@
+@import"~bootstrap/dist/css/bootstrap.css";
+@import"~font-awesome/css/font-awesome.css";
+
+.navbar {
+  background-color: #8b1c2d;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 24px;
+}
+.select {
+    width: 200px;
+}
+
+.nav-left a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.logo {
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.nav-right .logout {
+  color: white;
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+.user {
+  color: white;
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+.notes-btn {
+  text-align: right;
+  padding: 10px 30px;
+}
+
+  .notes-btn button {
+    background-color: #8b1c2d;
+    color: white;
+    border: none;
+    padding: 6px 14px;
+    cursor: pointer;
+  }
+
+.container {
+  width: 60%;
+  margin: 30px auto;
+}
+
+  .container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+.article-form .form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+  width: 500px;
+}
+
+.article-form .form-group2 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+  width: 300px;
+}
+
+.article-form label {
+  width: 180px;
+  font-size: 14px;
+}
+
+.article-form input,
+.article-form select,
+.article-form textarea {
+  width: 360px;
+  padding: 6px;
+  border: 1px solid #cccc;
+  
+}
+
+  .article-form select.form-group {
+    background-color: transparent;
+    box-shadow:none;
+  }
+
+
+.article-form textarea {
+  resize: vertical;
+}
+
+.error {
+  color: red;
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.button-group
+{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 15px;
+  align-items: center;
+}
+
+.btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.save-btn {
+  background-color: #e6a23c;
+}
+
+.review-btn {
+  background-color: #b42318;
+}
+
+.back-btn {
+  background-color: #e6a23c;
+}
+
+.btn-hover {
+  opacity: 0.9;
+}
+
+
+
+

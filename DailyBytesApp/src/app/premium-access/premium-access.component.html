@@ -1,0 +1,62 @@
+<div class="topnav">
+  <a class="navbar-brand" routerLink="/landing">DailyBytes</a>
+  <a class="navbar-brand" routerLink="/membership">Membership</a>
+  <a class="navbar-brand active" *ngIf="isPremiumUser" routerLink="/premium-access">Premium Access ⭐</a>
+  <div *ngIf="!isLoggedIn" class="topnav-right">
+    <a routerLink="/signup">Sign Up</a>
+    <a routerLink="/login">Login</a>
+  </div>
+  <div *ngIf="isLoggedIn" class="topnav-right">
+    <a routerLink="/search-article">Search</a>
+    <a href="#">{{userName}}</a>
+    <a routerLink="/view-profile">Profile</a>
+    <a href="#" (click)="logout()">Logout</a>
+  </div>
+</div>
+
+<div class="premium-container" *ngIf="isPremiumUser">
+  <h1>🌟 Premium Access Zone 🌟</h1>
+  <p class="welcome-text">Welcome to your exclusive premium content!</p>
+
+  <!-- Live Webinars Section -->
+  <section class="premium-section">
+    <h2>📹 Live Webinars</h2>
+    <div class="content-grid">
+      <div class="content-card" *ngFor="let webinar of webinars">
+        <h3>{{webinar.title}}</h3>
+        <p class="date">📅 {{webinar.date}}</p>
+        <p>{{webinar.description}}</p>
+        <a [href]="webinar.link" class="premium-btn">Join Webinar</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Telecasts Section -->
+  <section class="premium-section">
+    <h2>📺 Live Telecasts</h2>
+    <div class="content-grid">
+      <div class="content-card" *ngFor="let telecast of telecasts">
+        <h3>{{telecast.title}}</h3>
+        <p class="time">⏰ {{telecast.time}}</p>
+        <p class="channel">📡 {{telecast.channel}}</p>
+        <button class="premium-btn">Watch Live</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Free Merchandise Section -->
+  <section class="premium-section">
+    <h2>🎁 Free Merchandise</h2>
+    <div class="merch-grid">
+      <div class="merch-card" *ngFor="let item of merchandise">
+        <div class="merch-placeholder">🎁</div>
+        <h3>{{item.name}}</h3>
+        <button class="premium-btn">{{item.status}}</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer style="text-align:center; margin-top: 50px; padding: 20px; background: #faf3eb;">
+  <h3>DailyBytes Media House - Your daily dose of information © 2026</h3>
+</footer>

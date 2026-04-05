@@ -1,0 +1,75 @@
+<div *ngIf="roleId===3">
+  <app-editor-layout></app-editor-layout>
+</div>
+<div *ngIf="roleId===2">
+  <div class="topnav ">
+    <a class="navbar-brand" href="#">DailyBytes</a>
+    <a class="navbar-brand" href="#">Membership</a>
+    <div class="topnav-right">
+      <a href="#" routerLink="/search-article">Search</a>
+      <a href="#">{{userName}}</a>
+      <a href="#" (click)="logout()">Logout</a>
+    </div>
+  </div>
+</div>
+<div *ngIf="roleId===1">
+  <app-common-layout></app-common-layout>
+</div>
+<br />
+<div class="container my-5" *ngIf="articleDetails">
+
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+
+      <h2 class="fw-bold text-center">
+        {{ articleDetails.headline }}
+      </h2>
+
+      <h5 class="text-muted text-center">
+        {{ articleDetails.subHeading }}
+      </h5>
+
+      <hr>
+
+      <p class="fs-5 lh-base" style="text-align: justify;">
+        {{ articleDetails.articleContent }}
+      </p>
+
+      <div class="row mt-5 align-items-center">
+
+        <div class="col-md-6 text-start action-icons">
+          <span class="me-4">👍</span>
+          <span class="me-4">🔖</span>
+          <span class="me-4">❓</span>
+          <span>🔗</span>
+        </div>
+
+        <div class="col-md-6 text-end rating-stars">
+          <span>⭐</span>
+          <span>⭐</span>
+          <span>⭐</span>
+          <span>⭐</span>
+          <span>⭐</span>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div style="text-align:center;margin-top:40px;">
+  <p>
+    DailyBytes Media House - Your daily dose of information © 2026
+  </p>
+</div>
+
+
+
+
+
+
+
+
+

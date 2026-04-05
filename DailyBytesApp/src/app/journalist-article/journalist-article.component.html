@@ -1,0 +1,54 @@
+<app-journalist-layout></app-journalist-layout>
+<br />
+<br />
+<br />
+
+<div class="myContent">
+  <div class="title">
+    <h2>My Articles</h2>
+  </div>
+
+  <div *ngIf="isLoading" class="loading-container">
+    <p>Loading articles...</p>
+  </div>
+
+  <div *ngIf="errorMessage" class="text-danger-validation">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="!isLoading && articles.length === 0 && !errorMessage" class="no-articles">
+    <p>You haven't created any articles yet.</p>
+  </div>
+
+  <div *ngIf="!isLoading && articles.length > 0" class="articles-container">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th class="thArticle">Headline</th>
+          <th class="thArticle">Subheading</th>
+          <th class="thArticle-status">Status</th>
+          <th class="thArticle-action">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let article of articles">
+          <td>{{ article.headline }}</td>
+          <td>{{ article.subHeading }}</td>
+          <td>
+            <span [ngClass]="getStatusClass(article.status)" class="status-badge">
+              {{ article.status }}
+            </span>
+          </td>
+          <td>
+            <button 
+              class="btn btn-edit" 
+              (click)="editArticle(article.articleId)"
+              [disabled]="isEditDisabled(article.status)">
+              Edit
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

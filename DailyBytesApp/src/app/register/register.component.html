@@ -1,0 +1,86 @@
+<<app-common-layout></app-common-layout>
+<div class="register-container">
+  <h2 class="register-title login-title">Register</h2>
+
+  <form #registerForm="ngForm" (ngSubmit)="submitRegisterForm(registerForm)" class="register-form">
+
+    <input type="text" name="fName" class="form-control qkinput" placeholder="First Name" pattern="^[A-Za-z]+$" #fNameRef="ngModel" ngModel required/>
+    <div class="error" *ngIf="fNameRef.errors?.['required'] && (fNameRef.touched || fNameRef.dirty)">
+      First Name is required
+    </div>
+    <div class="error" *ngIf="fNameRef.errors?.['pattern'] && (fNameRef.touched || fNameRef.dirty)">
+      First Name cannot contain whitespaces
+    </div>
+
+    <input type="text" name="lName" class="form-control qkinput" placeholder="Last Name" pattern="^[A-Za-z]+$" #lNameRef="ngModel" ngModel required/>
+    <div class="error" *ngIf="lNameRef.errors?.['required'] && (lNameRef.touched || lNameRef.dirty)">
+      Last Name is required
+    </div>
+    <div class="error" *ngIf="lNameRef.errors?.['pattern'] && (lNameRef.touched || lNameRef.dirty)">
+      Last Name cannot contain whitespaces
+    </div>
+
+    <input type="email" name="email" class="form-control qkinput" placeholder="Email Id" email #emailRef="ngModel" ngModel required/>
+    <div class="error" *ngIf="emailRef.errors?.['required'] && (emailRef.touched || emailRef.dirty)">
+      Email Id is required
+    </div>
+    <div class="error" *ngIf="emailRef.errors?.['email'] && emailRef.touched">
+      Enter a valid Email Id
+    </div>
+
+    <div class="username-row">
+      <input type="text" name="username" class="form-control qkinput username-input" placeholder="User Name" #usernameRef="ngModel" ngModel required/>
+      <button type="button" class="btn check-btn" [disabled]="usernameRef.invalid" (click)="checkUsernameAvailability(usernameRef.value)">Check Availability</button>
+    </div>
+    <div class="error" *ngIf="usernameRef.invalid && (usernameRef.touched || usernameRef.dirty)">
+      Username is required
+    </div>
+    <div *ngIf="!usernameAvl">{{usernameMsg}}</div>
+    <input type="password" name="password" class="form-control qkinput" placeholder="Password" minlength="8" maxlength="16" pattern="^[a-zA-Z0-9]+$" #passwordRef="ngModel" ngModel required />
+    <div class="error" *ngIf="passwordRef.errors?.['required'] && (passwordRef.touched || passwordRef.dirty)">
+      Password is required
+    </div>
+    <div class="error" *ngIf="passwordRef.errors?.['minlength']">
+      Password must be at least 8 characters
+    </div>
+    <div class="error" *ngIf="passwordRef.errors?.['maxlength']">
+      Password cannot exceed 16 characters
+    </div>
+    <div class="error" *ngIf="passwordRef.errors?.['pattern']">
+      Password can contain only letters and numbers
+    </div>
+
+    <div class="gender-row">
+      <label>
+        Gender:
+        <label><input type="radio" name="gender" value="Male" ngModel /> Male</label>
+        <label><input type="radio" name="gender" value="Female" ngModel /> Female</label>
+        <label><input type="radio" name="gender" value="Other" ngModel /> Other</label>
+      </label>
+    </div>
+
+    <div class="dob-row">
+      <label>
+        Date of Birth:
+        <input type="date" class="form-control qkinput" name="dateOfBirth" [max]="today" #dateOfBirthRef="ngModel" ngModel required />
+      </label>
+    </div>
+    <div class="error" *ngIf="dateOfBirthRef.invalid && (dateOfBirthRef.touched || dateOfBirthRef.dirty)">
+      Date of Birth is required
+    </div>
+    <div class="error" *ngIf="dateOfBirthRef.errors?.['max'] && dateOfBirthRef.touched">
+      Date of Birth cannot be a future date.
+    </div>
+
+    <input type="text" class="form-control qkinput" name="contactNo" placeholder="Contact Number" pattern="^[1-9][0-9]{9}$" #contactNoRef="ngModel" ngModel required/>
+    <div class="error" *ngIf="contactNoRef.invalid && (contactNoRef.touched || contactNoRef.dirty)">
+      Enter valid 10 digit contact number
+    </div>
+
+    <input type="text" class="form-control qkinput" name="address" placeholder="Address" #addressRef="ngModel" ngModel />
+
+    <button type="submit" class="btn submit-btn qkinput" [disabled]="registerForm.invalid">Register</button>
+
+  </form>
+</div>
+

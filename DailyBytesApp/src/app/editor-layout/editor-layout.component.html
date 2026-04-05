@@ -1,0 +1,29 @@
+<nav class="topnav my-header">
+  <a class="navbar-brand" routerLink="/editor">DailyBytes</a>
+  <a routerLink="/review">Review</a>
+  <a href="#">Reports</a>
+  <div class="topnav-right"> 
+      <a>Welcome <span>{{userName}}</span></a>
+    <a routerLink="/view-profile">Profile</a>
+    <a href="#" (click)="logout()">Logout</a>
+  </div>
+</nav>
+
+<div>
+  <div *ngIf="routeName=='editor'" style="margin:70px; display:flex; gap:40px; align-items:flex-start;">
+    <div style="flex:2;">
+      <h2>Breaking News!</h2>
+      <div *ngFor="let article of articlesList" style="line-height:40px;">
+        <a href="#" routerLink="/read-article/{{article.articleId}}">{{article.headline}}</a>
+      </div>
+    </div>
+    <div style="flex:1;">
+      <img src="assets/read-articles.png"
+           alt="advertisement-images"
+           style="height: 100vh; width:auto; max-width:100%; object-fit:contain;" />
+    </div>
+  </div>
+  <footer style="text-align:center;">
+    <h3>DailyBytes Media House - Your daily dose of information © 2026</h3>
+  </footer>
+</div>

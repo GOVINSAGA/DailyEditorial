@@ -1,0 +1,141 @@
+<app-journalist-layout></app-journalist-layout>
+<br />
+<br />
+<br />
+
+<div class="notes-btn">
+  <button>Your notes</button>
+</div>
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Author an article</h2>
+
+  <form #articleForm="ngForm" (ngSubmit)="submitArticle(articleForm)" novalidate>
+
+    <div class="form-group mb-3">
+      <label class="form-label d-block">
+        Headline
+        <input type="text"
+               class="form-control"
+               name="headLine"
+               [(ngModel)]="article.headline"
+               #headLine="ngModel"
+               required />
+      </label>
+      <div class="error" *ngIf="headLine.invalid && headLine.touched">
+        Headline is required
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <label class="form-label d-block">
+        Sub Heading
+        <input type="text"
+               class="form-control"
+               name="subHeading"
+               [(ngModel)]="article.subHeading"
+               #subHeading="ngModel"
+               required />
+      </label>
+      <div class="error" *ngIf="subHeading.invalid && subHeading.touched">
+        Sub heading is required
+      </div>
+    </div>
+
+    <label class="form-label d-block">
+      Category
+      <div class="form-group mb-3" style="display:flex; align-items:center;">
+        <div class="d-flex align-items-center">
+          <select class="form-control select"
+                  name="categoryId"
+                  [(ngModel)]="article.categoryId"
+                  #categoryIdRef="ngModel"
+                  required>
+
+            <option [ngValue]="0" selected>-- Select --</option>
+            <option *ngFor="let c of categories" [ngValue]="c.categoryId">
+              {{ c.categoryName }}
+            </option>
+          </select>
+        </div>
+        <span class="error" *ngIf="(categoryIdRef.touched || categoryIdRef.dirty) && article.categoryId === 0">
+          Choose a valid value for article category.
+        </span>
+      </div>
+    </label>
+
+
+    <label class="form-label d-block">
+      Editor
+      <div class="form-group mb-3" style="display:flex; align-items:center;">
+        <div class="d-flex align-items-center">
+          <select class="form-control select"
+                  name="editorId"
+                  [(ngModel)]="article.editorId"
+                  #editorIdRef="ngModel"
+                  required>
+            <option [ngValue]="0" selected>-- Select --</option>
+            <option *ngFor="let e of editors" [ngValue]="e.editorId">
+              {{ e.editorName }}
+            </option>
+          </select>
+        </div>
+        <div class="error" *ngIf="(editorIdRef.touched || editorIdRef.dirty) && article.editorId === 0">
+          Choose a valid editor name
+        </div>
+      </div>
+    </label>
+
+    <label class="form-label d-block">
+      Select Media Id
+      <div class="form-group mb-3" style="display:flex; align-items:center;">
+        <div class="d-flex align-items-center">
+          <select class="form-control select"
+                  name="mediaId"
+                  [(ngModel)]="article.mediaId"
+                  #mediaId="ngModel"
+                  required>
+
+            <option [ngValue]="0" selected>-- Select --</option>
+            <option *ngFor="let m of mediaList" [ngValue]="m.mediaId">
+              {{ m.mediaId }}
+            </option>
+          </select>
+        </div>
+        <div class="error" *ngIf="(mediaId.touched || mediaId.dirty) && article.mediaId === 0">
+          Choose a valid Media ID
+        </div>
+      </div>
+    </label>
+
+    <div class="form-group mb-4">
+      <label class="form-label d-block">
+        Article content
+        <textarea rows="8"
+                  class="form-control"
+                  name="articleContent"
+                  [(ngModel)]="article.articleContent"
+                  #articleContent="ngModel"
+                  required></textarea>
+      </label>
+      <div class="error" *ngIf="articleContent.invalid && articleContent.touched">
+        Article content is required
+      </div>
+    </div>
+
+    <div class="d-flex gap-3">
+      <button type="submit" class="btn btn-warning">
+        Save
+      </button>
+
+      <button type="button" class="btn btn-danger" (click)="sendForReview()" [disabled]="!articleId">
+        Send for Review
+      </button>
+
+      <button type="button" class="btn btn-secondary" (click)="backToHome()">
+        Back to Menu
+      </button>
+    </div>
+
+  </form>
+</div>
+

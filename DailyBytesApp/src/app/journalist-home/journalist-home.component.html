@@ -1,0 +1,19 @@
+<app-journalist-layout></app-journalist-layout>
+<div>
+  <div style="margin:70px; display:flex; gap:40px; align-items:flex-start;">
+    <div style="flex:2;">
+      <h2>Breaking News!</h2>
+      <div *ngFor="let article of articlesList" style="line-height:40px;">
+        <a href="/read-article/{{article.articleId}}">{{article.headline}}</a>
+      </div>
+    </div>
+    <div style="flex:1;">
+      <img src="assets/read-articles.png"
+           alt="advertisement-images"
+           style="height: 100vh; width:auto; max-width:100%; object-fit:contain;" />
+    </div>
+  </div>
+  <footer style="text-align:center;">
+    <h3>DailyBytes Media House - Your daily dose of information © 2026</h3>
+  </footer>
+</div>

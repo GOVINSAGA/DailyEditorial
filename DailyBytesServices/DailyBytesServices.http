@@ -1,0 +1,6 @@
+@DailyBytesServices_HostAddress = http://localhost:5036
+
+GET {{DailyBytesServices_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

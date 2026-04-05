@@ -1,0 +1,81 @@
+.review-container {
+  padding: 40px 80px;
+  background: #faf3eb;
+}
+
+.article-box {
+  border: 1px solid #e2bfa3;
+}
+
+.row-item {
+  display: flex;
+  border-bottom: 1px solid #e2bfa3;
+}
+
+.label {
+  width: 25%;
+  padding: 14px;
+  font-weight: bold;
+  background-color: #f0caa0;
+  text-align: center;
+}
+
+.value {
+  width: 75%;
+  padding: 14px;
+  background-color: #f7ddc4;
+  text-align: left;
+}
+
+.content-row .value {
+  white-space: pre-line;
+}
+
+.review-section {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.review-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.review-textarea {
+  width: 80%;
+  padding: 15px;
+  border: 2px solid #d49b8a;
+  border-radius: 4px;
+  resize: none;
+}
+
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+.btn {
+  padding: 8px 18px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.approve-btn {
+  background-color: #8b1e3f;
+  color: white;
+}
+
+.sendback-btn {
+  background-color: #df9b6d;
+  margin-left: 10px;
+}
+
+.cancel-btn {
+  background-color: #df9b6d;
+}

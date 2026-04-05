@@ -1,0 +1,46 @@
+<nav class="topnav my-header">
+  <a class="navbar-brand" routerLink="/chief-editor/articles">DailyBytes</a>
+  <a>Approvals</a>
+  <a>Author</a>
+  <a>Reports</a>
+  <a>Bulletin Board</a>
+  <a>Advertisements</a>
+  <div class="topnav-right">
+    <span>Welcome {{userName}}</span>
+    <a href="#" (click)="logout()">Logout</a>
+  </div>
+</nav>
+<br /><br /><br /><br /><br />
+<div class="page-container">
+  <h2 class="page-title">Published Articles</h2>
+
+  <div class="table-wrapper">
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Article Name</th>
+          <th>Status</th>
+          <th>Published By</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let article of articles">
+          <td>{{ article.headline }}</td>
+          <td>
+            <span class="status published">
+              {{ article.status }}
+            </span>
+          </td>
+          <td>
+            {{ article.authorFirstName }} {{ article.authorLastName }}
+          </td>
+          <td>
+            <button (click)="archiveArticle(article.articleId)" class="btn btn-warning">Archive</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

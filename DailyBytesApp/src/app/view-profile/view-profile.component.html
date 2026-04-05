@@ -1,0 +1,229 @@
+<nav class="topnav my-header">
+  <a class="navbar-brand" (click)="navigateToHome()" style="cursor: pointer;">DailyBytes</a>
+  <div class="topnav-right">
+    <a routerLink="/view-profile">Profile</a>
+    <a (click)="logout()" style="cursor: pointer;">Logout</a>
+  </div>
+</nav>
+
+<div class="myContent">
+  <div class="title">
+    <h2>My Profile</h2>
+  </div>
+
+  <div *ngIf="showMsg" [ngClass]="msgType === 'success' ? 'alert-success' : 'alert-danger'" class="alert">
+    {{ msg }}
+  </div>
+
+  <div class="profile-container">
+    <!-- Profile Picture Section -->
+    <div class="profile-picture-section">
+      <div class="profile-picture-wrapper">
+        <img [src]="getProfileImage()" 
+             alt="Profile Picture" 
+             class="profile-picture"
+             onerror="this.src='assets/chief-editor-1.png'">
+      </div>
+      <div class="profile-info-header">
+        <h3>{{ user.firstName }} {{ user.lastName }}</h3>
+        <p class="username-display">@{{ user.username }}</p>
+        <span class="role-badge">{{ getRoleName() }}</span>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- Profile Form -->
+    <form #profileForm="ngForm" (ngSubmit)="onSubmit(profileForm)">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label">First Name</label>
+            <input
+              type="text"
+              class="form-control"
+              name="firstName"
+              [(ngModel)]="user.firstName"
+              [disabled]="!isEditMode"
+              required
+              pattern="[A-Za-z]+"
+              #firstName="ngModel"
+            />
+            <div *ngIf="firstName.invalid && firstName.touched" class="text-danger-validation">
+              <span *ngIf="firstName.errors?.['required']">First name is required</span>
+              <span *ngIf="firstName.errors?.['pattern']">First name should contain only letters</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label">Last Name</label>
+            <input
+              type="text"
+              class="form-control"
+              name="lastName"
+              [(ngModel)]="user.lastName"
+              [disabled]="!isEditMode"
+              required
+              pattern="[A-Za-z]+"
+              #lastName="ngModel"
+            />
+            <div *ngIf="lastName.invalid && lastName.touched" class="text-danger-validation">
+              <span *ngIf="lastName.errors?.['required']">Last name is required</span>
+              <span *ngIf="lastName.errors?.['pattern']">Last name should contain only letters</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Username</label>
+            <input
+              type="text"
+              class="form-control"
+              name="username"
+              [(ngModel)]="user.username"
+              disabled
+            />
+            <small class="form-text">Username cannot be changed</small>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              [(ngModel)]="user.email"
+              disabled
+              required
+              email
+              #emailRef="ngModel"
+            />
+            <small class="form-text">Email cannot be changed</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label">Gender</label>
+            <select
+              class="form-control"
+              name="gender"
+              [(ngModel)]="user.gender"
+              [disabled]="!isEditMode"
+              required
+              #gender="ngModel"
+            >
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label">Contact Number</label>
+            <input
+              type="tel"
+              class="form-control"
+              name="contactNumber"
+              [(ngModel)]="user.contactNumber"
+              [disabled]="!isEditMode"
+              required
+              pattern="[1-9][0-9]{9}"
+              maxlength="10"
+              #contactNumber="ngModel"
+            />
+            <div *ngIf="contactNumber.invalid && contactNumber.touched" class="text-danger-validation">
+              <span *ngIf="contactNumber.errors?.['required']">Contact number is required</span>
+              <span *ngIf="contactNumber.errors?.['pattern']">Please enter a valid 10-digit contact number</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label">Date of Birth</label>
+            <input
+              type="date"
+              class="form-control"
+              name="dateOfBirth"
+              [ngModel]="user.dateOfBirth | date:'yyyy-MM-dd'"
+              (ngModelChange)="user.dateOfBirth = $event"
+              [disabled]="!isEditMode"
+              required
+              #dateOfBirth="ngModel"
+            />
+            <div *ngIf="dateOfBirth.invalid && dateOfBirth.touched" class="text-danger-validation">
+              <span *ngIf="dateOfBirth.errors?.['required']">Date of birth is required</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Membership Type</label>
+            <input
+              type="text"
+              class="form-control"
+              [value]="user.membership || 'Standard'"
+              disabled
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label class="control-label">Address</label>
+            <textarea
+              class="form-control"
+              name="address"
+              [(ngModel)]="user.address"
+              [disabled]="!isEditMode"
+              rows="3"
+              #address="ngModel"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 text-center button-group">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            (click)="toggleEditMode()"
+          >
+            <span *ngIf="!isEditMode">✏️ Edit Profile</span>
+            <span *ngIf="isEditMode">❌ Cancel</span>
+          </button>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            *ngIf="isEditMode"
+            [disabled]="profileForm.invalid"
+          >
+            💾 Save Changes
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="footer">
+  <p>&copy; 2025 DailyBytes Media House. All Rights Reserved.</p>
+</div>
